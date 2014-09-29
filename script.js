@@ -1,22 +1,19 @@
-document.body.onload = addElement;
+var newArticle = document.createElement("article");
+var header = document.createElement("h1");
+var headerText = document.createTextNode("My Second Blog Post");
+newArticle.appendChild(header);
+header.appendChild(headerText);
+header.setAttribute('class', 'special');
+
+var paragraph = document.createElement("p");
+var paragraphText = document.createTextNode("This is a blog post about really awesome stuff I've done in JavaScript.");
+paragraph.appendChild(paragraphText);
+newArticle.appendChild(paragraph);
 
 
-// //create a title
-// var headerOne = document.createElement('h1');
+var currentArticle = document.getElementsByTagName("article")[0];
+document.body.insertBefore(newArticle, currentArticle);
 
-
-
-
-function addElement () {
-  // create a new div element
-  // and give it some content
-  var newDiv = document.createElement("div");
-  var newContent = document.createTextNode("This is the second blog post I've ever written");
-  newDiv.appendChild(newConte nt); //add the text node to the newly created div.
-
-  // add the newly created element and its content into the DOM
-  var currentDiv = document.getElementById("div1");
-  document.body.insertBefore(newDiv, currentDiv);
-}
-
-console.log(headerOne);
+var currentArticleTitle = document.createElement('h1');
+currentArticleTitle.appendChild(document.createTextNode('My First Blog Post'));
+currentArticle.insertBefore(currentArticleTitle, currentArticle.childNodes[0]);
